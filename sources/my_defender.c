@@ -7,23 +7,13 @@
 
 #include "defender.h"
 
-void draw_cursor(game_t game)
-{
-    sfVector2i vector;
-    sfVector2f cursor_pos;
-
-    vector = sfMouse_getPositionRenderWindow(game.my_defender);
-    vector.x -= 5;
-    vector.y -= 3;
-    cursor_pos = (sfVector2f){vector.x, vector.y};
-    sfSprite_setPosition(game.cursor, cursor_pos);
-    sfRenderWindow_drawSprite(game.my_defender, game.cursor, NULL);
-}
-
 void draw_sprite(game_t game, back_t back)
 {
-    sfRenderWindow_drawSprite(game.my_defender, back.start_back, NULL);
-    draw_cursor(game);
+    if (game.game_status == 0) {
+        sfRenderWindow_drawSprite(game.my_defender, back.start_back, NULL);
+        sfRenderWindow_drawSprite(game.my_defender, game.start, NULL);
+    }
+    sfRenderWindow_drawSprite(game.my_defender, game.cursor, NULL);
 }
 
 int main(int argc, char **argv)

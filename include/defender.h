@@ -23,5 +23,6 @@
         void init_window_element(game_t *game);
         void init_backgrounds(back_t *back);
         void manage_event(game_t *game);
+        void move_cursor(game_t *game);
         int handle_error();
 #endif/*_DEFENDER_*/

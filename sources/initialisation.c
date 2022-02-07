@@ -23,6 +23,7 @@ void init_backgrounds(back_t *back)
 void init_window_element(game_t *game)
 {
     sfVideoMode mode = {1920, 1080, 32};
+    sfVector2f start_pos = {100, 100};
 
     game->my_defender = sfRenderWindow_create
     (mode, "My_defender", sfClose, NULL);
@@ -33,4 +34,9 @@ void init_window_element(game_t *game)
     ("assets/cursor.png", NULL);
     game->cursor = sfSprite_create();
     sfSprite_setTexture(game->cursor, game->texture_cursor, sfTrue);
+    game->texture_start = sfTexture_createFromFile
+    ("assets/start.png", NULL);
+    game->start = sfSprite_create();
+    sfSprite_setTexture(game->start, game->texture_start, sfTrue);
+    sfSprite_setPosition(game->start, start_pos);
 }
