@@ -1,0 +1,3 @@
+**/*.o
+**/libmy.a
+my_defender
