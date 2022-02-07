@@ -28,7 +28,6 @@ SRC 	=	./my_atoi.c					\
 			./my_str_to_word_array.c	\
 			./my_strcapitalize.c		\
 			./my_strcat.c				\
-			./my_strcmp.c				\
 			./my_strcpy.c				\
 			./my_strdup.c				\
 			./my_strlen.c				\

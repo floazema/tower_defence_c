@@ -21,5 +21,6 @@
 #ifndef _DEFENDER_
     #define _DEFENDER_
         void init_window(game_t *game);
+        void init_backgrounds(back_t *back);
         int handle_error();
 #endif/*_DEFENDER_*/

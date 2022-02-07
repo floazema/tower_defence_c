@@ -14,5 +14,10 @@
     #define __MY_STRUCT__
         typedef struct game {
             sfRenderWindow *my_defender;
+            int game_status;
         } game_t;
+        typedef struct background {
+            sfSprite *start_back;
+            sfTexture *texture_start_back;
+        } back_t;
 #endif/*__MY_STRUCT__*/

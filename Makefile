@@ -5,7 +5,6 @@
 ## Makefile
 ##
 
-
 ## Variable to be modified
 rm = rm -rf
 
@@ -17,7 +16,8 @@ LDFLAGS	=	-L./ -lmy -lcsfml-graphics -lcsfml-window	\
 			-lcsfml-audio -lcsfml-system
 
 SRC	=	sources/my_defender.c	\
-		sources/initialisation.c
+		sources/initialisation.c\
+		sources/events.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

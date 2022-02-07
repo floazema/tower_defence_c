@@ -14,7 +14,7 @@ int strnbrs(char *av)
     while (av[i] != '\0') {
         if (av[i] == '-') {
             isneg = -1;
-            i++; 
+            i++;
         }
         chartonumber *= 10;
         chartonumber += av[i] - 48;
