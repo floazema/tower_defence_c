@@ -14,6 +14,8 @@
     #define __MY_STRUCT__
         typedef struct game {
             sfRenderWindow *my_defender;
+            sfSprite *cursor;
+            sfTexture *texture_cursor;
             int game_status;
         } game_t;
         typedef struct background {

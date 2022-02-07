@@ -20,12 +20,17 @@ void init_backgrounds(back_t *back)
     sfSprite_setTexture(back->start_back, back->texture_start_back, sfTrue);
 }
 
-void init_window(game_t *game)
+void init_window_element(game_t *game)
 {
     sfVideoMode mode = {1920, 1080, 32};
 
     game->my_defender = sfRenderWindow_create
     (mode, "My_defender", sfClose, NULL);
     sfRenderWindow_setFramerateLimit(game->my_defender, 60);
+    sfRenderWindow_setMouseCursorVisible(game->my_defender, sfFalse);
     game->game_status = 0;
+    game->texture_cursor = sfTexture_createFromFile
+    ("assets/cursor.png", NULL);
+    game->cursor = sfSprite_create();
+    sfSprite_setTexture(game->cursor, game->texture_cursor, sfTrue);
 }
