@@ -18,6 +18,7 @@ LDFLAGS	=	-L./ -lmy -lcsfml-graphics -lcsfml-window	\
 SRC	=	sources/my_defender.c	\
 		sources/initialisation.c\
 		sources/events.c		\
+		sources/game_status.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
