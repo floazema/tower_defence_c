@@ -13,6 +13,7 @@ void draw_sprite(game_t game, back_t back, button_t button)
         sfRenderWindow_drawSprite(game.my_defender, back.start_back, NULL);
         sfRenderWindow_drawSprite(game.my_defender, button.start, NULL);
         sfRenderWindow_drawSprite(game.my_defender, button.quit, NULL);
+        sfRenderWindow_drawSprite(game.my_defender, button.option, NULL);
     }
     sfRenderWindow_drawSprite(game.my_defender, game.cursor, NULL);
 }
@@ -29,7 +30,6 @@ int main(int argc, char **argv)
     if (handle_error(argc, argv) == 84)
         return 84;
     while (sfRenderWindow_isOpen(game.my_defender)) {
-        //printf("%i\n", game.game_status);
         sfRenderWindow_clear(game.my_defender, sfBlack);
         manage_event(&game, button);
         draw_sprite(game, back, button);

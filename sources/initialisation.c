@@ -5,6 +5,10 @@
 ** myrunner
 */
 
+//if + present / present
+//if + present / will + bv
+// if + past simple / would +bv
+//if + past perfect, would have + past participate
 #include "defender.h"
 
 int handle_error()
@@ -24,6 +28,7 @@ void init_button(button_t *button)
 {
     sfVector2f start_pos = {100, 100};
     sfVector2f quit_pos = {100, 400};
+    sfVector2f option_pos = {100, 650};
 
     button->texture_start = sfTexture_createFromFile
     ("assets/start.png", NULL);
@@ -35,6 +40,11 @@ void init_button(button_t *button)
     button->quit = sfSprite_create();
     sfSprite_setTexture(button->quit, button->texture_quit, sfTrue);
     sfSprite_setPosition(button->quit, quit_pos);
+    button->texture_option = sfTexture_createFromFile
+    ("assets/option.png", NULL);
+    button->option = sfSprite_create();
+    sfSprite_setTexture(button->option, button->texture_option, sfTrue);
+    sfSprite_setPosition(button->option, option_pos);
 }
 
 void init_window_element(game_t *game)

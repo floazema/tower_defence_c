@@ -28,5 +28,7 @@
             sfTexture *texture_start;
             sfSprite *quit;
             sfTexture *texture_quit;
+            sfSprite *option;
+            sfTexture *texture_option;
         } button_t;
 #endif/*__MY_STRUCT__*/
