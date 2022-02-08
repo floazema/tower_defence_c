@@ -26,8 +26,10 @@ void manage_event(game_t *game, button_t button)
 
     while (sfRenderWindow_pollEvent(game->my_defender, &event)) {
         move_cursor(game);
-        if (event.type == sfEvtClosed || event.key.code == sfKeyQ)
+        if (event.type == sfEvtClosed || event.key.code == sfKeyQ) {
+            sfMusic_destroy(game->music_my_defender);
             sfRenderWindow_close(game->my_defender);
+        }
         if (event.type == sfEvtMouseMoved)
             scale_button(button, game);
         if (event.type == sfEvtMouseButtonPressed)

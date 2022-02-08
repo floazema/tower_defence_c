@@ -50,4 +50,7 @@ void init_window_element(game_t *game)
     ("assets/cursor.png", NULL);
     game->cursor = sfSprite_create();
     sfSprite_setTexture(game->cursor, game->texture_cursor, sfTrue);
+    game->music_my_defender = sfMusic_createFromFile("assets/My-Defender.ogg");
+    sfMusic_setLoop(game->music_my_defender, sfTrue);
+    sfMusic_play(game->music_my_defender);
 }

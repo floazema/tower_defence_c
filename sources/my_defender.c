@@ -29,6 +29,7 @@ int main(int argc, char **argv)
     if (handle_error(argc, argv) == 84)
         return 84;
     while (sfRenderWindow_isOpen(game.my_defender)) {
+        //printf("%i\n", game.game_status);
         sfRenderWindow_clear(game.my_defender, sfBlack);
         manage_event(&game, button);
         draw_sprite(game, back, button);

@@ -16,6 +16,7 @@
             sfRenderWindow *my_defender;
             sfSprite *cursor;
             sfTexture *texture_cursor;
+            sfMusic *music_my_defender;
             int game_status;
         } game_t;
         typedef struct background {

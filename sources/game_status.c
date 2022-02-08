@@ -47,6 +47,8 @@ void change_status(button_t button, game_t *game)
         game->game_status += 1;
     if (mouse_pos.x >= quit_pos.x && mouse_pos.x
     <= start_pos.x + buttons_length && mouse_pos.y >=
-    quit_pos.y && mouse_pos.y <= quit_pos.y + quit_button_height)
+    quit_pos.y && mouse_pos.y <= quit_pos.y + quit_button_height) {
+        sfMusic_destroy(game->music_my_defender);
         sfRenderWindow_close(game->my_defender);
+    }
 }
