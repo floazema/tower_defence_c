@@ -41,7 +41,8 @@ SRC 	=	./my_atoi.c					\
 			./printf/flagssec.c			\
 			./printf/flagsthree.c		\
 			./printf/my_printf.c		\
-			./my_strncmp.c
+			./my_strcmp.c				\
+			./my_itoa.c					\
 
 HDR	=	my.h
 

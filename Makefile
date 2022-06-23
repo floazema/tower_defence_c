@@ -13,12 +13,33 @@ TARGET = my_defender
 CFLAGS = -Wextra -Wall -Iinclude
 
 LDFLAGS	=	-L./ -lmy -lcsfml-graphics -lcsfml-window	\
-			-lcsfml-audio -lcsfml-system
+			-lcsfml-audio -lcsfml-system -lm
 
 SRC	=	sources/my_defender.c	\
 		sources/initialisation.c\
 		sources/events.c		\
 		sources/game_status.c	\
+		sources/error_handling.c\
+		sources/increase_button_level.c	\
+		sources/increase_button_menu.c	\
+		sources/destroy_window.c	\
+		sources/level1.c	\
+		sources/glow_base.c	\
+		sources/build.c	\
+		sources/level1_things.c	\
+		sources/main.c	\
+		sources/draw_tower.c	\
+		sources/init_button.c	\
+		sources/set_volumne.c	\
+		sources/upgrade.c	\
+		sources/sell.c	\
+		sources/draw_tower2.c	\
+		sources/draw_tower3.c	\
+		sources/defenddraw.c	\
+		sources/enemy_path.c	\
+		sources/enemy_anim.c	\
+		sources/init_level1.c	\
+		sources/init_enemy.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

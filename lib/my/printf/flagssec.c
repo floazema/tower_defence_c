@@ -14,7 +14,6 @@ int printxsecptr(char *puthexa, unsigned int nbr);
 void my_putchar(char);
 int printssec(char *dest, char *octave, int j);
 
-
 int printsthree(char *dest, char *octave, int j)
 {
     if (dest[j] == 127 || dest[j] < 32)
@@ -26,7 +25,7 @@ int printsthree(char *dest, char *octave, int j)
 int printxthree(char *puthexa, unsigned int nbr)
 {
     unsigned int stock = 0;
-    int	k = 0;
+    int k = 0;
     while (nbr != 0) {
         stock = nbr % 16;
         if (stock < 10)
@@ -57,7 +56,7 @@ char *printbsec(char *binary, unsigned int nbr)
 
 int printxsec(char *puthexa, unsigned int nbr)
 {
-    int	k = 0;
+    int k = 0;
     unsigned int stock = 0;
 
     while (nbr != 0) {

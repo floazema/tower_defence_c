@@ -5,7 +5,7 @@
 ** swap
 */
 
-int my_swap(int  *a, int  *b)
+int my_swap(int *a, int *b)
 {
     int c;
     c = *a;

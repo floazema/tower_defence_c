@@ -5,62 +5,60 @@
 ** myrunner
 */
 
-//if + present / present
-//if + present / will + bv
-// if + past simple / would +bv
-//if + past perfect, would have + past participate
 #include "defender.h"
 
-int handle_error()
+static const int window_height = 1080;
+static const int window_width = 1920;
+static const int bits_per_pixel = 32;
+
+void create_sprite(char *path, sfSprite **sprite, sfTexture **texture,
+sfVector2f *basepos)
 {
-    return 0;
+    sfVector2f no_pos = {0, 0};
+
+    *sprite = sfSprite_create();
+    *texture = createFromFile(path, NULL);
+    sfSprite_setTexture(*sprite, *texture, sfTrue);
+    if (basepos == NULL) {
+        sfSprite_setPosition(*sprite, no_pos);
+    } else
+        sfSprite_setPosition(*sprite, *basepos);
 }
 
 void init_backgrounds(back_t *back)
 {
-    back->texture_start_back = sfTexture_createFromFile
-    ("assets/start_background.jpg", NULL);
-    back->start_back = sfSprite_create();
-    sfSprite_setTexture(back->start_back, back->texture_start_back, sfTrue);
+    create_sprite("assets/start_background.jpg", &back->start_back,
+    &back->texture_start_back, NULL);
+    create_sprite("assets/option_menu.png", &back->option_back,
+    &back->texture_option_back, NULL);
 }
 
-void init_button(button_t *button)
+void init_level_select(back_t *back)
 {
-    sfVector2f start_pos = {100, 100};
-    sfVector2f quit_pos = {100, 400};
-    sfVector2f option_pos = {100, 650};
-
-    button->texture_start = sfTexture_createFromFile
-    ("assets/start.png", NULL);
-    button->start = sfSprite_create();
-    sfSprite_setTexture(button->start, button->texture_start, sfTrue);
-    sfSprite_setPosition(button->start, start_pos);
-    button->texture_quit = sfTexture_createFromFile
-    ("assets/quit.png", NULL);
-    button->quit = sfSprite_create();
-    sfSprite_setTexture(button->quit, button->texture_quit, sfTrue);
-    sfSprite_setPosition(button->quit, quit_pos);
-    button->texture_option = sfTexture_createFromFile
-    ("assets/option.png", NULL);
-    button->option = sfSprite_create();
-    sfSprite_setTexture(button->option, button->texture_option, sfTrue);
-    sfSprite_setPosition(button->option, option_pos);
+    create_sprite("assets/select_difficulty.png", &back->level_select,
+    &back->texture_level_select, NULL);
+    create_sprite("assets/select_difficulty.png", &back->option_back,
+    &back->texture_option_back, NULL);
 }
 
-void init_window_element(game_t *game)
+void init_window_element(game_t *game, bool do_fullscreen)
 {
-    sfVideoMode mode = {1920, 1080, 32};
+    sfVideoMode mode = {window_width, window_height, bits_per_pixel};
 
-    game->my_defender = sfRenderWindow_create
-    (mode, "My_defender", sfClose, NULL);
-    sfRenderWindow_setFramerateLimit(game->my_defender, 60);
+    if (do_fullscreen == true)
+        game->my_defender = sfRenderWindow_create
+        (mode, "My_defender", sfClose, NULL);
+    else
+        game->my_defender = sfRenderWindow_create
+        (mode, "My_defender", sfClose | sfFullscreen, NULL);
     sfRenderWindow_setMouseCursorVisible(game->my_defender, sfFalse);
-    game->game_status = 0;
-    game->texture_cursor = sfTexture_createFromFile
-    ("assets/cursor.png", NULL);
-    game->cursor = sfSprite_create();
-    sfSprite_setTexture(game->cursor, game->texture_cursor, sfTrue);
-    game->music_my_defender = sfMusic_createFromFile("assets/My-Defender.ogg");
+    game->status = START_MENU;
+    create_sprite("assets/cursor.png", &game->cursor,
+    &game->texture_cursor, NULL);
+    create_sprite("assets/help.png", &game->help,
+    &game->texture_help, NULL);
+    game->music_my_defender = sfMusic_createFromFile("assets/tds_ost.ogg");
     sfMusic_setLoop(game->music_my_defender, sfTrue);
     sfMusic_play(game->music_my_defender);
+    game->difficulty = 0;
 }
